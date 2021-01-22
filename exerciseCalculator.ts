@@ -50,4 +50,14 @@ function calculateExercises(array: Array<number>, target: number): result {
   };
 }
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
+const target: number = Number(process.argv[2])
+
+var arr: Array<number> = [];
+ 
+const input = process.argv.splice(3, process.argv.length)
+
+input.forEach ((cur) => {
+    arr.push(Number(cur))
+})
+
+console.log(calculateExercises(arr, target));
