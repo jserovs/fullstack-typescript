@@ -16,6 +16,8 @@ function calculateBmi(height:number, weight:number):String {
 
 }
 
+export default calculateBmi
+
 const height: number = Number(process.argv[2])
 const weight: number = Number(process.argv[3])
 
