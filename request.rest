@@ -2,4 +2,17 @@ GET http://localhost:3003/hello HTTP/1.1
 
 ###
 
-GET http://localhost:3003/bmi?height=huh&weight=72
+GET http://localhost:3003/bmi?height=huh&weight=72 HTTP/1.1
+
+###
+
+
+###
+
+POST http://localhost:3003/exercises HTTP/1.1
+content-type: application/json
+
+{
+  "daily_exercises": [1, 0, 2, 0, 3, 0, 3],
+  "target": 2.5
+}

@@ -1,4 +1,4 @@
-function calculateBmi(height:number, weight:number):String {
+export function calculateBmi(height:number, weight:number):String {
 
     const res:number= weight*10000 / (height*height);
 
@@ -15,8 +15,6 @@ function calculateBmi(height:number, weight:number):String {
     return '';
 
 }
-
-export default calculateBmi
 
 const height: number = Number(process.argv[2])
 const weight: number = Number(process.argv[3])
