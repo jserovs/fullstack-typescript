@@ -12,6 +12,8 @@ function calculateBmi(height:number, weight:number):String {
         return 'Overweight'
     }
 
+    return '';
+
 }
 
 const height: number = Number(process.argv[2])
