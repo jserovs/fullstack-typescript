@@ -1,18 +1,18 @@
 import { Gender, Patient } from "../types/Patient";
-const crypto = require("crypto");
+import crypto from "crypto";
 
-const isGender = (param: any): param is Gender => {
+const isGender = (param: string): param is Gender => {
     return Object.values(Gender).includes(param);
   };
   
-  const parseGender = (visibility: any): Gender => {
-    if (!visibility || !isGender(visibility)) {
-        throw new Error('Incorrect or missing visibility: ' + visibility);
+  const parseGender = (gender: string): Gender => {
+    if (!gender || !isGender(gender)) {
+        throw new Error('Incorrect or missing visibility: ${gender}');
     }
-    return visibility;
+    return gender;
   };
 
-const toPatientData = (object: any) : Patient => {
+const toPatientData = (object: Patient) : Patient => {
     return {
         id: crypto.randomBytes(20).toString("hex"),
         name: object.name,
@@ -23,4 +23,4 @@ const toPatientData = (object: any) : Patient => {
     };
 };
 
-export { toPatientData }
+export { toPatientData };

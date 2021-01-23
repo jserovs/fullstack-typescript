@@ -17,6 +17,6 @@ router.post('/', (request: express.Request, response: express.Response) => {
     response.send(patient);
     return;
 
-})
+});
 
 export default router;

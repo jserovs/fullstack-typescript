@@ -5,7 +5,7 @@ import { Header } from './components/Header';
 import Total from './components/Total';
 
 const App: React.FC = () => {
-  const courseName:String = "Half Stack application development";
+  const courseName = "Half Stack application development";
   const courseParts = [
     {
       name: "Fundamentals",

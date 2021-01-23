@@ -4,7 +4,7 @@ import { toPatientData } from "../utils/PatientUtils";
 
 const patients: Array<Patient> = patientData as Array<Patient>;
 
-const getAll = () => {
+const getAll = ():Array<Patient> => {
   return patients;
 };
 
@@ -12,7 +12,7 @@ const getPatients = (): PatientData[] => {
   return patients;
 };
 
-const addPatient = (input: object): PatientData => {
+const addPatient = (input: Record<string, unknown>): PatientData => {
   const patient: Patient = toPatientData(input);
   patients.push(patient);
   const res: PatientData = patient;

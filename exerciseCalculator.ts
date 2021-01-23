@@ -3,7 +3,7 @@ export interface result {
   trainingDays: number;
   success: boolean;
   rating: number;
-  ratingDescription: String;
+  ratingDescription: string;
   target: number;
   average: number;
 }
@@ -16,7 +16,7 @@ export function calculateExercises(array: Array<number>, target: number): result
   console.log(target);
   
 
-  var rating: number = 0;
+  let rating = 0;
   if (sucess) {
     rating = 3;
   } else if (sum / array.length > 1) {
@@ -25,7 +25,7 @@ export function calculateExercises(array: Array<number>, target: number): result
     rating = 1;
   }
 
-  var descr: String = "";
+  let descr = "";
   switch (rating) {
     case 3:
       descr = "You are ok";
@@ -52,14 +52,14 @@ export function calculateExercises(array: Array<number>, target: number): result
   };
 }
 
-const target: number = Number(process.argv[2])
+const target = Number(process.argv[2]);
 
-var arr: Array<number> = [];
+const arr: Array<number> = [];
  
-const input = process.argv.splice(3, process.argv.length)
+const input = process.argv.splice(3, process.argv.length);
 
 input.forEach ((cur) => {
-    arr.push(Number(cur))
-})
+    arr.push(Number(cur));
+});
 
 console.log(calculateExercises(arr, target));

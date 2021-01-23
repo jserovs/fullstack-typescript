@@ -4,12 +4,12 @@ export enum Gender {
 }
 
 export interface Patient {
-  id: String;
-  name: String;
-  dateOfBirth: String;
-  ssn: String;
+  id: string;
+  name: string;
+  dateOfBirth: string;
+  ssn: string;
   gender: Gender;
-  occupation: String;
+  occupation: string;
 }
 
 export type PatientData = Pick<Patient, "id" | "name" | "dateOfBirth" | "gender" | "occupation" >;

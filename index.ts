@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import express from "express";
 import { calculateBmi } from "./calculateBmi";
-import {result, calculateExercises} from "./exerciseCalculator"
+import {result, calculateExercises} from "./exerciseCalculator";
 const app = express();
 
 app.use(express.json());
@@ -12,12 +15,12 @@ app.get("/hello", (_request: express.Request, response: express.Response) => {
 interface BmiResponse {
   weight: number;
   height: number;
-  bmi: String;
+  bmi: string;
 }
 
 app.get("/bmi", (request: express.Request, response: express.Response) => {
-  const height: number = Number(request.query.height);
-  const weight: number = Number(request.query.weight);
+  const height = Number(request.query.height);
+  const weight = Number(request.query.weight);
 
   if (isNaN(height) || isNaN(weight)) {
     response.send({ error: "malformatted parameters" });
@@ -42,7 +45,7 @@ app.post(
         return;
     }
 
-    const target: number = Number(request.body.target);
+    const target = Number(request.body.target);
           
     if (!Array.isArray(request.body.daily_exercises) || request.body.daily_exercises.some(isNaN) || isNaN(target) ) {
         response.send({ error: "malformatted parameters" });
