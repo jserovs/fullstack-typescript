@@ -1,12 +1,12 @@
 import React from 'react'
 import { Course } from '../types/Course'
 
-const Content = (props: {courseParts: Array<Course>}) => {
+const Content: React.FC<{courseParts: Array<Course>}> = (props) => {
     return (
         <div>
             {props.courseParts.map((value, index) => {
                 return (
-                    <p>
+                    <p key={index}>
                         {value.name} {value.exerciseCount}
                     </p>
                 )

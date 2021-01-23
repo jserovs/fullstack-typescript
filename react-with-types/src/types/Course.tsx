@@ -1,4 +1,4 @@
 export interface Course {
-    name: String,
+    name: string,
     exerciseCount: number
 }
