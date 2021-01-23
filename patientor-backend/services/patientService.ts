@@ -12,7 +12,7 @@ const getPatients = (): PatientData[] => {
   return patients;
 };
 
-const addPatient = (input: Record<string, unknown>): PatientData => {
+const addPatient = (input: Patient): PatientData => {
   const patient: Patient = toPatientData(input);
   patients.push(patient);
   const res: PatientData = patient;

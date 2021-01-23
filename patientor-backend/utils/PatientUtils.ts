@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Gender, Patient } from "../types/Patient";
 import crypto from "crypto";
 
-const isGender = (param: string): param is Gender => {
-    return Object.values(Gender).includes(param);
+const isGender = (param: any): param is Gender => {
+  const gen = Object.values(Gender).includes(param);
+    return gen;
   };
   
   const parseGender = (gender: string): Gender => {
