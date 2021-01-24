@@ -13,8 +13,8 @@
 - [X] 9.11 / patientor-backend
 - [x] 9.12 / patientor-backend
 - [x] 9.13 / patientor-backend
-- [ ] 9.14 
-- [ ] 9.15 
+- [x] 9.14 / react-with-types
+- [x] 9.15 / react-with-types
 - [ ] 9.16 
 - [ ] 9.17 
 - [ ] 9.18 
