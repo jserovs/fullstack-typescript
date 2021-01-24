@@ -4,12 +4,18 @@ import { toPatientData } from "../utils/PatientUtils";
 
 const patients: Array<Patient> = patientData as Array<Patient>;
 
-const getAll = ():Array<Patient> => {
+const getAll = (): Array<Patient> => {
   return patients;
 };
 
 const getPatients = (): PatientData[] => {
-  return patients;
+  return patients.map(( {id, name, dateOfBirth, gender, occupation}) => ({
+    id,
+    name,
+    dateOfBirth,
+    gender,
+    occupation
+  }));
 };
 
 const addPatient = (input: Patient): PatientData => {
@@ -20,4 +26,16 @@ const addPatient = (input: Patient): PatientData => {
   return res;
 };
 
-export default { getAll, getPatients, addPatient };
+const getPatient = (id:string): Patient | undefined=> {
+  var patient = patients.find((element) => element.id === id);
+
+  if (patient!== undefined) {
+    patient.entries = [];
+    return patient;
+  }
+  
+  return undefined;
+
+};
+
+export default { getAll, getPatients, addPatient, getPatient };

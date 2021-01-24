@@ -22,6 +22,7 @@ const toPatientData = (object: Patient) : Patient => {
         ssn: object.ssn,
         gender: parseGender(object.gender),
         occupation: object.occupation,
+        entries: []
     };
 };
 
