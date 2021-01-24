@@ -22,6 +22,10 @@ const PatientListPage: React.FC = () => {
     setError(undefined);
   };
 
+  const clickedPatientName = (id:string) => {
+    console.log(id);
+  }
+
   const submitNewPatient = async (values: PatientFormValues) => {
     try {
       const { data: newPatient } = await axios.post<Patient>(
@@ -52,8 +56,8 @@ const PatientListPage: React.FC = () => {
         </Table.Header>
         <Table.Body>
           {Object.values(patients).map((patient: Patient) => (
-            <Table.Row key={patient.id}>
-              <Table.Cell>{patient.name}</Table.Cell>
+            <Table.Row key={patient.id} >
+              <Table.Cell onClick={ () => clickedPatientName(patient.id)}>{patient.name}</Table.Cell>
               <Table.Cell>{patient.gender}</Table.Cell>
               <Table.Cell>{patient.occupation}</Table.Cell>
               <Table.Cell>
