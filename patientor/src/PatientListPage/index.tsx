@@ -23,10 +23,6 @@ const PatientListPage: React.FC = () => {
     setError(undefined);
   };
 
-  const clickedPatientName = (id:string) => {
-    console.log(id);
-  }
-
   const submitNewPatient = async (values: PatientFormValues) => {
     try {
       const { data: newPatient } = await axios.post<Patient>(
@@ -40,6 +36,9 @@ const PatientListPage: React.FC = () => {
       setError(e.response.data.error);
     }
   };
+
+  console.log(JSON.stringify(patients));
+  
 
   return (
     <div className="App">
