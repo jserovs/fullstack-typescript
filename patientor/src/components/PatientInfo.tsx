@@ -3,7 +3,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Header, Icon } from 'semantic-ui-react';
 import { apiBaseUrl } from '../constants';
-import { useStateValue } from "../state";
+import { storeExtendedPatientInfo, useStateValue } from "../state";
 import { Patient } from '../types';
 
 function PatientInfo() {
@@ -16,10 +16,11 @@ function PatientInfo() {
 
         const extendPatientInfo = async () => {
             try {
-                const { data: patientListFromApi } = await axios.get<Patient>(
+                const { data: patientFromApi } = await axios.get<Patient>(
                     `${apiBaseUrl}/patients/${id}`
                 );
-                dispatch({ type: "EXTEND_PATIENT_INFO", payload: patientListFromApi });
+                // dispatch({ type: "EXTEND_PATIENT_INFO", payload:/patientListFromApi });
+                dispatch(storeExtendedPatientInfo(patientFromApi))
             } catch (e) {
                 console.error(e);
             }
