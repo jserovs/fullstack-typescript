@@ -1,1 +1,9 @@
 node_modules/
+.eslintignore
+.eslintrc_
+patientor/.eslintrc_
+react-with-types/.eslintcache
+react-with-types/.eslintrc_
+.eslintignore
+react-with-types/.eslintcache
+.gitignore

@@ -5,15 +5,15 @@ import { PatientData } from '../types/Patient';
 const router = express.Router();
 
 router.get("", (_request: express.Request, response: express.Response)=> {
-
-    response.send(patientService.getPatients());
+    response.header("Content-Type",'application/json');
+    response.json(patientService.getPatients());
     return;
 
 });
 
 
 router.get("/:id", (request: express.Request, response: express.Response)=> {
-    
+    response.header("Content-Type",'application/json');
     if (request.params && request.params.id && typeof request.params.id === "string") {
     const id: string = request.params.id;
         const patient = patientService.getPatient(id);

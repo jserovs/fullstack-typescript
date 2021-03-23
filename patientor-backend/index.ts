@@ -6,6 +6,7 @@ import cors from 'cors';
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.set('json spaces', 4)
 
 app.get("/api/ping", (_request: express.Request, response: express.Response)=> {
 
