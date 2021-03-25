@@ -1,10 +1,14 @@
 import axios from "axios";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Header, Icon, List } from "semantic-ui-react";
+import { Card, Header, Icon} from "semantic-ui-react";
 import { apiBaseUrl } from "../constants";
 import { storeExtendedPatientInfo, useStateValue } from "../state";
-import { Entry, Patient } from "../types";
+import { Diagnose, Entry, Patient } from "../types";
+import OccupationalHealthCare from "./OccupationalHealthCareEntry";
+import Hospital from "./HospitalEntry";
+import HealthCheck from "./HealthCheckEntry";
+
 
 function PatientInfo() {
   const { id } = useParams<{ id: string }>();
@@ -48,28 +52,34 @@ function PatientInfo() {
         <p>ssn: {patient.ssn}</p>
         <p>occupation : {patient.occupation}</p>
         {patient.entries && patient.entries.length > 0 && (
-          <div>
+          <Card.Group>
             <Header size="small">Entries</Header>
             {Object.values(patient.entries).map((entry: Entry) => (
-              <div key={entry.id}>
-                <p>
-                  {entry.date} <i>{entry.description}</i>
-                </p>
-                {entry.diagnosisCodes && (
-                  <List as="ul">
-                    {Object.values(entry.diagnosisCodes).map((code) => (
-                      <List.Item key={code} as="li">
-                        {code} {diagnoses[code].name}
-                      </List.Item>
-                    ))}
-                  </List>
-                )}
-              </div>
+                <EntryDetails entry={entry} diagnoses={diagnoses}/>
             ))}
-          </div>
+          </Card.Group>
         )}
       </div>
     );
+  }
+}
+
+const assertNever = (value: never): never => {
+  throw new Error(
+    `Unhandled discriminated union member: ${JSON.stringify(value)}`
+  );
+};
+
+const EntryDetails: React.FC <{entry: Entry,  diagnoses: { [id: string]: Diagnose }}> = ({entry, diagnoses}) => {
+  switch (entry.type) {
+    case "HealthCheck":
+      return <HealthCheck entry={entry} diagnoses={diagnoses}/>
+      case "Hospital":
+      return <Hospital entry={entry} diagnoses={diagnoses}/>
+      case "OccupationalHealthcare":
+      return <OccupationalHealthCare entry={entry} diagnoses={diagnoses}/>
+  default:
+    return <p>null</p>
   }
 }
 
